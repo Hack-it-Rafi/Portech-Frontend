@@ -1,0 +1,44 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "browserFp",
+				"type": "string"
+			}
+		],
+		"name": "getSignature",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "browserFp",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "signature",
+				"type": "string"
+			}
+		],
+		"name": "registerDevice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
