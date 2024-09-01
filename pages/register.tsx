@@ -267,6 +267,7 @@ const RegisterPage: React.FC = () => {
       console.log({pass});
       
       const decryptedMessage = (await decryptMessage(pass, encryptedMessage)) as string;
+      console.log(decryptMessage);
       const signature = await signMessage("Portech", decryptedMessage);
       if(!isValidEVMPrivateKey(decryptedMessage) ){
         toast("Login failed ❌");

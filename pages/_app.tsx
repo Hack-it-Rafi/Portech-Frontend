@@ -7,6 +7,8 @@ import { init, Web3OnboardProvider } from "@web3-onboard/react";
 import { onboardConfig } from "../utils/connectWallet";
 import { ProjectProvider } from "@/customComponents/projectProvider";
 import { AuthProvider } from "@/customComponents/isLoggedInProvider";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -29,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </Provider>
           </ProjectProvider>
         </AuthProvider>
+        <ToastContainer />
       </Web3OnboardProvider>
     </div>
   );
