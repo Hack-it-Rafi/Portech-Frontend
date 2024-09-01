@@ -5,13 +5,12 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
-import { WalletState } from "@web3-onboard/core";
 import { useConnectWallet } from "@web3-onboard/react";
 import { initializeRequestNetwork } from "./initializeRN";
 import type { RequestNetwork } from "@requestnetwork/request-client.js";
 
 interface ContextType {
-  wallet: WalletState | null;
+  wallet: any;
   requestNetwork: RequestNetwork | null;
 }
 

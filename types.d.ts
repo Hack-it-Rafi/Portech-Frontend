@@ -1,5 +1,4 @@
 import { IConfig } from "@portech/shared";
-import { WalletState } from "@web3-onboard/core";
 import type { RequestNetwork } from "@requestnetwork/request-client.js";
 
 declare global {
@@ -21,7 +20,7 @@ interface CreateInvoiceFormElement {
 
 interface InvoiceDashboardProps extends HTMLElement {
   config: IConfig;
-  wallet: WalletState;
+  wallet: any;
   requestNetwork: RequestNetwork;
   projectName?: string;
 }
