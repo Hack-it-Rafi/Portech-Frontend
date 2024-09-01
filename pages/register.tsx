@@ -14,6 +14,7 @@ import  useStore  from '@/hooks/useCredentials'
 import { useAppContext } from "@/utils/context";
 import { Types } from "@requestnetwork/request-client.js";
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
+import { useAuth } from "@/customComponents/isLoggedInProvider";
 
 const RegisterPage: React.FC = () => {
   
@@ -21,7 +22,8 @@ const RegisterPage: React.FC = () => {
   const [loadingRegister, setLoadingRegister] = useState(false);
   const [loadingSign, setLoadingSign] = useState(false);
   const fixedIV = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-  const { setPrvKey, setAddress, setLoggedIn } = useStore()
+  const { setPrvKey, setAddress } = useStore()
+  const { loggedIn, setLoggedIn } = useAuth();
   const router = useRouter();
 
   useEffect(() => {

@@ -8,20 +8,21 @@ import { useConnectWallet } from "@web3-onboard/react";
 import { useProject } from "@/customComponents/projectProvider";
 import useStore from "@/hooks/useCredentials";
 import { useRouter } from "next/router";
+import { useAuth } from "@/customComponents/isLoggedInProvider";
 
 export default function InvoiceDashboard() {
   const router = useRouter();
   const [{ wallet }] = useConnectWallet();
   const { requestNetwork } = useAppContext();
   const dashboardRef = useRef<InvoiceDashboardProps>(null);
-  const { loggedIn } = useStore();
+  const { loggedIn } = useAuth();
   const { projectName } = useProject();
   // console.log("Hello ",projectName);
 
   useEffect(() => {
-    // if (!loggedIn) {
-    //   router.push("/register");
-    // }
+    if (!loggedIn) {
+      router.push("/register");
+    }
     if (dashboardRef.current) {
       dashboardRef.current.config = config;
       if (projectName) {

@@ -6,12 +6,12 @@ import { useConnectWallet } from "@web3-onboard/react";
 import { ArrowUpRight } from "@/icons";
 import { Button, Dropdown } from "../common";
 import { truncateAddress } from "@/utils/walletUtils";
-import useStore from "@/hooks/useCredentials";
+import { useAuth } from "@/customComponents/isLoggedInProvider";
 
 const Navbar = () => {
   const router = useRouter();
-  const [{ wallet }, connect] = useConnectWallet();
-  const { loggedIn } = useStore()
+  const [{ wallet }, connect] = useConnectWallet()
+  const { loggedIn } = useAuth();
 
   const links = [
     {
@@ -58,7 +58,7 @@ const Navbar = () => {
         </ul>
       )}
       <div className="flex items-center gap-[35px] ml-auto">
-      {/* { loggedIn ? ( */}
+      { loggedIn ? (
           <Button
           text={
             wallet
@@ -69,9 +69,9 @@ const Navbar = () => {
             connect();
           }}
         />
-        {/* ) : (
+         ) : (
           "Please Login"
-        )} */}
+        )} 
       </div>
     </nav>
   );

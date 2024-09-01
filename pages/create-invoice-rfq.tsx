@@ -6,12 +6,14 @@ import { useAppContext } from "@/utils/context";
 import { CreateInvoiceFormProps } from "@/types";
 import { useRouter } from "next/router";
 import useStore from "@/hooks/useCredentials";
+import { useAuth } from "@/customComponents/isLoggedInProvider";
 
 export default function CreateInvoice() {
   const formRef = useRef<CreateInvoiceFormProps>(null);
   const { wallet, requestNetwork } = useAppContext();
   const router = useRouter();
-  const { loggedIn } = useStore();
+  const { loggedIn } = useAuth();
+  
 
   useEffect(() => {
     // if (!loggedIn) {

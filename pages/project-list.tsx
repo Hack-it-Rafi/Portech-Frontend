@@ -7,21 +7,23 @@ import { useRouter } from "next/router";
 import { useProject } from "@/customComponents/projectProvider";
 import { Dropdown } from "@/components/common";
 import useStore from "@/hooks/useCredentials";
+import { useAuth } from "@/customComponents/isLoggedInProvider";
 
 export default function ProjectList() {
   const router = useRouter()
   const { requestNetwork } = useAppContext();
   const [{ wallet }] = useConnectWallet();
-  const { loggedIn } = useStore()
+  const { loggedIn } = useAuth();
+  console.log(loggedIn);
 
   const signer = wallet?.accounts[0]?.address;
   const [filteredRequests, setFilteredRequests] = useState<any[]>([]);
   const { projectName, setProjectName } = useProject();
 
   useEffect(() => {
-    // if (!loggedIn) {
-    //   router.push("/register")
-    // }
+    if (!loggedIn) {
+      router.push("/register")
+    }
     const getRequests = async () => {
       try {
         const requestsData = await requestNetwork?.fromIdentity({
