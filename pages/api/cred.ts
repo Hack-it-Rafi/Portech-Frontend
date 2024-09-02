@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY+"";
   const RPC_URL = process.env.NEXT_PUBLIC_RPC_URL;
   const provider = new ethers.JsonRpcProvider(RPC_URL);
-  const contractAddress = '0x400d87a453451082d65c864a30370a4422ad1Ccf';
+  const contractAddress = '0x223a3DA90f2669Fb608B90e47ccF4C18fC21203a';
   const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
   const contract = new ethers.Contract(contractAddress, contractABI, wallet);
   if (req.method === 'POST') {

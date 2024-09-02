@@ -228,6 +228,7 @@ const RegisterPage: React.FC = () => {
         })
       
       const resJson =  await apiResponse.json()
+      console.log(resJson);
 
       const link = `https://sepolia.etherscan.io/tx/${resJson.txHash}`
       if (resJson.success) {
@@ -276,6 +277,7 @@ const RegisterPage: React.FC = () => {
       console.log("Done..");
       
       const fp = await getBrowserFingerprint()
+      console.log(fp);
       // Maybe do signature verification with this -> maybe this means on register call a smart contract browser fingerprint to -> signature of "Portech"
       const response = await fetch(`/api/cred/?fp=${fp}`);
       const resJson = await response.json();

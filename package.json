@@ -14,7 +14,7 @@
     "@darkedges/capacitor-native-webauthn": "^0.0.4",
     "@fingerprintjs/fingerprintjs": "^4.4.3",
     "@portech/create-invoice-form": "^0.5.0",
-    "@portech/invoice-dashboard": "^0.4.1",
+    "@portech/invoice-dashboard": "^0.4.2",
     "@portech/shared": "^0.4.0",
     "@requestnetwork/request-client.js": "0.45.0",
     "@requestnetwork/web3-signature": "0.5.0",
